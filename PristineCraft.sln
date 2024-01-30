@@ -12,6 +12,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\
 		{DE60DD2A-5D7F-48C7-885A-F31D591D6508} = {DE60DD2A-5D7F-48C7-885A-F31D591D6508}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\Persistence.csproj", "{83AF42A0-DB92-40D3-94E3-CBDD18ACAD1E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3AEC8208-319F-4C0A-BE5C-3A1CCF23BFBF} = {3AEC8208-319F-4C0A-BE5C-3A1CCF23BFBF}
+		{DE60DD2A-5D7F-48C7-885A-F31D591D6508} = {DE60DD2A-5D7F-48C7-885A-F31D591D6508}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +32,10 @@ Global
 		{3AEC8208-319F-4C0A-BE5C-3A1CCF23BFBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AEC8208-319F-4C0A-BE5C-3A1CCF23BFBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AEC8208-319F-4C0A-BE5C-3A1CCF23BFBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83AF42A0-DB92-40D3-94E3-CBDD18ACAD1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83AF42A0-DB92-40D3-94E3-CBDD18ACAD1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83AF42A0-DB92-40D3-94E3-CBDD18ACAD1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83AF42A0-DB92-40D3-94E3-CBDD18ACAD1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -33,6 +43,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{DE60DD2A-5D7F-48C7-885A-F31D591D6508} = {AFB2CEDE-92DA-4903-B061-C7BE1F345CFF}
 		{3AEC8208-319F-4C0A-BE5C-3A1CCF23BFBF} = {AFB2CEDE-92DA-4903-B061-C7BE1F345CFF}
+		{83AF42A0-DB92-40D3-94E3-CBDD18ACAD1E} = {AFB2CEDE-92DA-4903-B061-C7BE1F345CFF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34BAB2DB-28D7-4416-A3BE-2E9F4DDFC5F9}

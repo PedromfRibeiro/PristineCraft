@@ -6,5 +6,5 @@ public class UserMetaData
 	public string? Value { get; set; }
 	public bool Valid { get; set; } = true;
 	public int UserId { get; set; }
-	public required User User { get; set; }
+	public User User { get; set; }
 }

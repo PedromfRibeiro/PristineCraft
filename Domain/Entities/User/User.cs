@@ -6,7 +6,7 @@ namespace Domain.Entities.User;
 
 public class User : IdentityUser<int>
 {
-	public required string Name { get; set; }
+	public string Name { get; set; }
 	public string? Contact { get; set; }
 	public byte[]? Image { get; set; }
 	public byte[]? ImageSmall { get; set; }
@@ -15,8 +15,8 @@ public class User : IdentityUser<int>
 
 	#region Alternate keys
 
-	public required ICollection<UserMetaData> UserMetaData { get; set; }
-	public required ICollection<Role> UserRole { get; set; }
+	public ICollection<UserMetaData> UserMetaData { get; set; }
+	public ICollection<Role> UserRole { get; set; }
 
 	#endregion Alternate keys
 
