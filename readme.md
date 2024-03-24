@@ -1,0 +1,2 @@
+-Migration 
+	-dotnet ef migrations add InitialMigration_IdentityAPI --project Persistence --startup-project IdentityServiceApi
