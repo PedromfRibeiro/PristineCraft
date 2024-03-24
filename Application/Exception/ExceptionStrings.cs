@@ -17,5 +17,25 @@ public static class ExceptionStrings
 	public static readonly string Account_Login_Email = "Email não foi encontrado na base de dados";
 	public static readonly string Account_Password_Failed = "Não foi possivel atualizar a password";
 	public static readonly string Account_Phone_Failed = "Não foi possivel atualizar o numero de telemovel";
+
+	#endregion Account
+
+	#region Server
+
+	public static readonly string Server_Failed = "Erro do Servidor interno";
+
+	public static readonly string Server_Update_Failed = "Error ao atualizar entidade";
+
+	public static readonly string Server_Delete_Failed = "Error ao eliminar entidade";
+
+	#endregion Server
+
+	#region Message
+
+	public static readonly string Messenger_Sent = "Messagem enviada com sucesso";
+
+	public static readonly string Messenger_Error = "Error ao enviar messagem";
+
+	#endregion Message
 	#endregion
 }
