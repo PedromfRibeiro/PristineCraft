@@ -9,7 +9,7 @@ public static class Seeds
 	{
 		var checkDatabaseContent = await _context.db_User.CountAsync();
 
-		if (checkDatabaseContent > 0)
+		if (checkDatabaseContent == 0)
 			await UserSeedAsync(userManager, _context, roleManager);
 
 	}

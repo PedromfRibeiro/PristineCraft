@@ -13,12 +13,12 @@ public class User : IdentityUser<int>
 	public string? Observations { get; set; }
 	public EnumGender Gender { get; set; }
 
-	#region Alternate keys
+	#region Foreign keys
 
 	public ICollection<UserMetaData> UserMetaData { get; set; }
 	public ICollection<Role> UserRole { get; set; }
 
-	#endregion Alternate keys
+	#endregion Foreign keys
 
 	#region Seeder
 
@@ -79,5 +79,6 @@ public class User : IdentityUser<int>
 		}
 		return imageBytes;
 	}
+
 	#endregion Seeder
 }
