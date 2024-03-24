@@ -37,4 +37,11 @@ public static class ExceptionStrings
 
 	#endregion Server
 
+	#region Message
+
+	public static readonly string Messenger_Sent = "Messagem enviada com sucesso";
+
+	public static readonly string Messenger_Error = "Error ao enviar messagem";
+
+	#endregion Message
 }
