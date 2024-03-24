@@ -18,9 +18,22 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\
 		{DE60DD2A-5D7F-48C7-885A-F31D591D6508} = {DE60DD2A-5D7F-48C7-885A-F31D591D6508}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{6584C8F6-05B7-4D15-9DA6-40C711DED727}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{6584C8F6-05B7-4D15-9DA6-40C711DED727}"
 	ProjectSection(ProjectDependencies) = postProject
 		{3AEC8208-319F-4C0A-BE5C-3A1CCF23BFBF} = {3AEC8208-319F-4C0A-BE5C-3A1CCF23BFBF}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServiceApi", "IdentityServiceApi\IdentityServiceApi.csproj", "{F8E762FB-03DD-4B8E-9FFD-12E46C00E71E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{32A7E646-D8BE-4D87-B643-7BF444BCF935} = {32A7E646-D8BE-4D87-B643-7BF444BCF935}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{32A7E646-D8BE-4D87-B643-7BF444BCF935}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AA639D94-4A89-4133-9D2B-3E3F8A83EA51}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+		StartSmtp4Dev.bat = StartSmtp4Dev.bat
 	EndProjectSection
 EndProject
 Global

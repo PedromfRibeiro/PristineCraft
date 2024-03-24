@@ -3,7 +3,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
 namespace Shared.Extensions;
-public static class SwaggerService
+
+public static class SwaggerExtensions
 {
 	public static void AddSwagger(this IServiceCollection services, IConfiguration _configuration)
 	{
@@ -14,7 +15,7 @@ public static class SwaggerService
 				Version = _configuration?["SwaggerGen:OpenApiInfo:Version"],
 				Title = _configuration?["SwaggerGen:OpenApiInfo:Title"],
 				Description = _configuration?["SwaggerGen:OpenApiInfo:Description"],
-				TermsOfService = new System.Uri(_configuration?["SwaggerGen:OpenApiInfo:TermsOfService"]??""),
+				TermsOfService = new System.Uri(_configuration?["SwaggerGen:OpenApiInfo:TermsOfService"] ?? ""),
 				Contact = new OpenApiContact()
 				{
 					Name = _configuration?["SwaggerGen:OpenApiInfo:Contact:Name"],
