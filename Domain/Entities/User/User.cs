@@ -1,7 +1,4 @@
-﻿using Bogus;
-using Microsoft.AspNetCore.Identity;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Net;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace Domain.Entities;
 

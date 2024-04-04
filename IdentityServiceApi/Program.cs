@@ -4,7 +4,7 @@ using Persistence.Repositories;
 using Shared.Helper;
 using Shared.Extensions;
 using Shared.Middleware;
-using Domain.Entities.User;
+using Domain.Entities;
 using Persistence;
 using Persistence.DataSeeding;
 using Microsoft.AspNetCore.Identity;
@@ -58,7 +58,7 @@ if (app.Environment.IsDevelopment())
 		//		� iniciado o processo de migra��o
 		//		E o seed da db come�a
 		var migration = context.Database.GetPendingMigrations();
-		if (migration.Any())
+		if (true)//migration.Any())
 		{
 			context.Database.EnsureDeleted();
 
