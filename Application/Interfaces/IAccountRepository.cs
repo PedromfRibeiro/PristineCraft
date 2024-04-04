@@ -1,6 +1,6 @@
 ﻿using Application.DTO.User;
 using Application.Helper;
-using Domain.Entities.User;
+using Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using OneOf;
 using OneOf.Types;

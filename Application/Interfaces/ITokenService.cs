@@ -1,4 +1,4 @@
-﻿using Domain.Entities.User;
+﻿using Domain.Entities;
 
 namespace Application.Interfaces;
 public interface ITokenService
