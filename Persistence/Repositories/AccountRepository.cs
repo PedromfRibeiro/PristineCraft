@@ -4,7 +4,7 @@ using Application.Helper;
 using Application.Interfaces;
 using Application.Services;
 using AutoMapper;
-using Domain.Entities.User;
+using Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using OneOf;
@@ -70,7 +70,7 @@ public class AccountRepository(
 
 	public async Task<OneOf<PagedList<User>, NotFound>> Fetch(FilterParams filterParams)
 	{
-		var query = context.db_User.AsNoTracking();
+		var query = context.DbUser.AsNoTracking();
 
 		return await PagedList<User>.CreateAsync(query, filterParams._pageNumber, filterParams.PageSize, filterParams.FilterOptions2);
 	}

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Domain.Entities.User;
+using Domain.Entities;
 using Application.DTO.User;
 
 namespace Shared.Helper;
