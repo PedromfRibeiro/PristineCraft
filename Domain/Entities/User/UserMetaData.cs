@@ -1,4 +1,5 @@
-﻿namespace Domain.Entities.User;
+﻿namespace Domain.Entities;
+
 public class UserMetaData
 {
 	public int Id { get; set; }
