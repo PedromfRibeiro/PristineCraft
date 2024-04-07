@@ -11,7 +11,7 @@ public interface IAccountRepository
 {
 	Task<OneOf<(SignInResult, LoginResponseDto), Error<string>>> AccountLogin(LoginRequestDto userLogin);
 
-	Task<OneOf<(IdentityResult, IdentityResult, int), Error<string>>> AccountRegister(RegisterRequestDto request);
+	Task<OneOf<(IdentityResult, IdentityResult, RegisterResponseDTO), Error<string>>> AccountRegister(RegisterRequestDto request);
 
 	Task Logout();
 

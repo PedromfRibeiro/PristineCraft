@@ -10,18 +10,22 @@ public class RegisterRequestDto
 	public string PhoneNumber { get; set; }
 	public string Observations { get; set; }
 
-
 	//IdentityUser Fields
 	[Required]
 	public string UserName { get; set; }
+
 	[Required]
 	public string Email { get; set; }
+
 	[Required]
 	[StringLength(20, MinimumLength = 4)]
 	public string Password { get; set; }
 }
+
 public class RegisterResponseDTO
 {
 	public string UserName { get; set; }
 	public string Email { get; set; }
+	public bool RoleCreationSuccess { get; set; }
+	public string? RoleCreationError { get; set; }
 }

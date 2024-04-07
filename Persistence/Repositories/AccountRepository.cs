@@ -2,7 +2,6 @@
 using Application.Exception;
 using Application.Helper;
 using Application.Interfaces;
-using Application.Services;
 using AutoMapper;
 using Domain.Entities;
 using Microsoft.AspNetCore.Identity;
@@ -44,18 +43,27 @@ public class AccountRepository(
 												);
 	}
 
-	public async Task<OneOf<(IdentityResult, IdentityResult, int), Error<string>>> AccountRegister(RegisterRequestDto request)
+	public async Task<OneOf<(IdentityResult, IdentityResult, RegisterResponseDTO), Error<string>>> AccountRegister(RegisterRequestDto request)
 	{
 		if ((await AccountFindByEmail(request.Email)).IsT1)
 			return new Error<string>(ExceptionStrings.Account_Register_EmailUsed);
 		if ((await AccountFindByUserName(request.UserName)).IsT1)
 			return new Error<string>(ExceptionStrings.Account_Register_UserNameUsed);
 		User user = mapper.Map<User>(request);
-		return (
-			await userManager.AddToRoleAsync(user, "Member"),
-			await userManager.CreateAsync(user, request.Password),
-			await context.SaveChangesAsync()
-			);
+		var userCreateResult = await userManager.CreateAsync(user, request.Password);
+		if (userCreateResult.Succeeded)
+		{
+			var userRoleResult = await userManager.AddToRoleAsync(user, "Member");
+			return (
+				userRoleResult,
+				userCreateResult,
+				mapper.Map<RegisterResponseDTO>(AccountFindByEmail(request.Email))
+				);
+		}
+		else
+		{
+			return new Error<string>(ExceptionStrings.Account_Register_Failed);
+		}
 	}
 
 	public async Task Logout()
@@ -71,7 +79,6 @@ public class AccountRepository(
 	public async Task<OneOf<PagedList<User>, NotFound>> Fetch(FilterParams filterParams)
 	{
 		var query = context.DbUser.AsNoTracking();
-
 		return await PagedList<User>.CreateAsync(query, filterParams._pageNumber, filterParams.PageSize, filterParams.FilterOptions2);
 	}
 
