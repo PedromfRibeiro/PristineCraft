@@ -1,6 +1,4 @@
-﻿using Domain.Entities.Services;
-
-namespace Infrastructure.Interfaces;
+﻿namespace Infrastructure.Interfaces;
 
 public interface IEmailSender
 {

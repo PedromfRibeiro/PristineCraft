@@ -1,5 +1,4 @@
 ﻿using Domain.Entities.Services;
-using FluentEmail.Core.Models;
 using Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Controllers;

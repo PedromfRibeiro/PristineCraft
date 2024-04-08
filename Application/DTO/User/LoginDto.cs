@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 
 namespace Application.DTO.User;
+
 public class LoginRequestDto
 {
 	[Required]

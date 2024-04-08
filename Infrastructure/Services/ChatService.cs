@@ -2,7 +2,6 @@
 using Domain.Entities;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
-using OneOf;
 using Persistence;
 
 namespace Infrastructure.Services;

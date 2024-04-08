@@ -1,17 +1,15 @@
 ﻿using Application.Interfaces;
 using Application.Services;
-using Persistence.Repositories;
-using Shared.Helper;
-using Shared.Extensions;
-using Shared.Middleware;
+using AutoMapper;
 using Domain.Entities;
-using Persistence;
-using Persistence.DataSeeding;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using AutoMapper;
-using Infrastructure.Services;
-using Infrastructure;
+using Persistence;
+using Persistence.DataSeeding;
+using Persistence.Repositories;
+using Shared.Extensions;
+using Shared.Helper;
+using Shared.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 

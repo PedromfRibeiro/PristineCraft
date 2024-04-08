@@ -1,13 +1,13 @@
 ﻿using Application.DTO.User;
+using Application.Helper;
 using Application.Interfaces;
 using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Shared.Controllers;
-using Microsoft.AspNetCore.Mvc;
-using Application.Helper;
 using Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Persistence.Helper;
+using Shared.Controllers;
 
 namespace IdentityServiceApi.Controllers;
 

@@ -1,5 +1,4 @@
-﻿using Domain.Entities;
-using Infrastructure.Extensions;
+﻿using Infrastructure.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Net;
