@@ -1,6 +1,6 @@
 ﻿using Application.DTO.User;
 using Application.Helper;
-using Domain.Entities.User;
+using Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using OneOf;
 using OneOf.Types;
@@ -11,7 +11,7 @@ public interface IAccountRepository
 {
 	Task<OneOf<(SignInResult, LoginResponseDto), Error<string>>> AccountLogin(LoginRequestDto userLogin);
 
-	Task<OneOf<(IdentityResult, IdentityResult, int), Error<string>>> AccountRegister(RegisterRequestDto request);
+	Task<OneOf<(IdentityResult, IdentityResult, RegisterResponseDTO), Error<string>>> AccountRegister(RegisterRequestDto request);
 
 	Task Logout();
 

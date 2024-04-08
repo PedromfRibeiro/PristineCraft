@@ -1,11 +1,8 @@
-using Application.Interfaces;
 using Infrastructure;
 using Infrastructure.Extensions;
 using Infrastructure.Interfaces;
 using Infrastructure.Services;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using Persistence.Repositories;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);

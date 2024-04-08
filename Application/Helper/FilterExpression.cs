@@ -17,25 +17,34 @@ public static partial class FilterExpression
 		{
 			case "Equal":
 				return MakeBinary(ExpressionType.Equal, left, value);
+
 			case "NotEqual":
 				return MakeBinary(ExpressionType.NotEqual, left, value);
+
 			case "GreaterThan":
 				return MakeBinary(ExpressionType.GreaterThan, left, value);
+
 			case "GreaterThanOrEqual":
 				return MakeBinary(ExpressionType.GreaterThanOrEqual, left, value);
+
 			case "LessThan":
 				return MakeBinary(ExpressionType.LessThan, left, value);
+
 			case "LessThanOrEqual":
 				return MakeBinary(ExpressionType.LessThanOrEqual, left, value);
+
 			case "isnull":
 				return MakeBinary(ExpressionType.Equal, left, value);
+
 			case "isnotnull":
 			case "startswith":
 			case "endswith":
 			case "contains":
 				return Expression.Call(MakeString(left), comparison, Type.EmptyTypes, Expression.Constant(value, typeof(string)));
+
 			case "doesnotcontain":
 				return Expression.Not(Expression.Call(MakeString(left), "contains", Type.EmptyTypes, (Expression.Constant(value, typeof(string)))));
+
 			default:
 				return MakeBinary(ExpressionType.NotEqual, left, null);
 		}

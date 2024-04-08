@@ -1,8 +1,8 @@
-﻿using Domain.Entities.User;
+﻿using Domain.Entities;
 
 namespace Application.Interfaces;
+
 public interface ITokenService
 {
 	Task<string> CreateToken(User user);
-
 }

@@ -1,8 +1,9 @@
-﻿using AutoMapper;
-using Domain.Entities.User;
-using Application.DTO.User;
+﻿using Application.DTO.User;
+using AutoMapper;
+using Domain.Entities;
 
 namespace Shared.Helper;
+
 public class AutoMapperProfiles : Profile
 {
 	public AutoMapperProfiles()

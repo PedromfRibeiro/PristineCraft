@@ -1,5 +1,5 @@
 ﻿using Domain.Entities;
-using Domain.Entities.User;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -28,10 +28,27 @@ public class DataContext : IdentityDbContext<User, UserRole, int, IdentityUserCl
 				 .HasForeignKey(ur => ur.RoleId)
 				 .IsRequired()
 				 .OnDelete(DeleteBehavior.NoAction);
+
+		builder.Entity<Message>()
+	   .HasOne(m => m.Sender)
+	   .WithMany(u => u.SentMessages)
+	   .HasForeignKey(m => m.SenderId)
+	   .IsRequired()
+	   .OnDelete(DeleteBehavior.NoAction); // Specify OnDelete behavior
+
+		builder.Entity<Message>()
+			.HasOne(m => m.Receiver)
+			.WithMany(u => u.ReceivedMessages)
+			.HasForeignKey(m => m.ReceiverId)
+			.IsRequired()
+			.OnDelete(DeleteBehavior.NoAction); // Specify OnDelete behavior
 	}
 
-	public DbSet<User> db_User { get; set; }
-	public DbSet<UserMetaData> db_UserMetaData { get; set; }
+	public DbSet<User> DbUser { get; set; }
+	public DbSet<UserMetaData> DbUserMetaData { get; set; }
 	public DbSet<LogEntry> LogEntries { get; set; }
-	public DbSet<Message> db_Messages { get; set; }
+	public DbSet<Message> DbMessages { get; set; }
+	public DbSet<Payee> DbPayee { get; set; }
+	public DbSet<PayeeCategory> DbPayeeCategory { get; set; }
+	public DbSet<BankAccount> DbBankAccount { get; set; }
 }

@@ -14,7 +14,7 @@ public class EmailSender : IEmailSender
 
 	public async Task SendEmailAsync(string email, string subject, string htmlMessage, byte[]? attachment = null)
 	{
-		EmailMessageModel emailMessage = new(email, subject, htmlMessage, attachment);
+		EmailMessageModel emailMessage = new EmailMessageModel(email, subject, htmlMessage, attachment);
 		await _emailService.Send(emailMessage);
 	}
 }

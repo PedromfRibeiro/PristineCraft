@@ -1,4 +1,5 @@
 ﻿namespace Application.DTO.User;
+
 public class TfaSetupDto
 {
 	public string Email { get; set; }

@@ -19,6 +19,8 @@ public static class ExceptionStrings
 
 	public static readonly string Account_Register_UserNameUsed = "Username já se encontra em utilização";
 
+	public static readonly string Account_Register_Failed = "O resgisto do novo utilizador falhou!";
+
 	public static readonly string Account_Login_Email = "Email não foi encontrado na base de dados";
 
 	public static readonly string Account_Password_Failed = "Não foi possivel atualizar a password";
