@@ -1,0 +1,82 @@
+﻿@page "/login"
+<h3>Login</h3>
+
+@code {
+
+}
+@layout AuthenticationLayout
+
+@using Application.DTO.User
+@using Microsoft.FluentUI.AspNetCore.Components
+@using WebClient.Services;
+
+@inject NavigationManager NavigationManager
+@inject IdentityServiceApiClient IdentityServiceApiClient
+
+<FluentCard Width="400px" Style="height:auto;">
+    <FluentStack Orientation="Orientation.Vertical" VerticalAlignment="VerticalAlignment.Center" VerticalGap="24" HorizontalAlignment="HorizontalAlignment.Left">
+
+        <FluentLabel><h2>Login</h2></FluentLabel>
+
+        <FluentStack Orientation="Orientation.Vertical" VerticalAlignment="VerticalAlignment.Center" VerticalGap="16" HorizontalAlignment="HorizontalAlignment.Left">
+            @if (error)
+            {
+                <FluentLabel Alignment="HorizontalAlignment.Left" Style="color:red;">@message</FluentLabel>
+            }
+            <div style="width:100%"><FluentTextField Label="Email or Username" @bind-Value="@identifier" TextFieldType="TextFieldType.Text" Spellcheck="true" Style="width:100%" /></div>
+            <div style="width:100%"><FluentTextField Label="Password" @bind-Value="@password" TextFieldType="TextFieldType.Password" Style="width:100%" /></div>
+            <div style="width:100%"><FluentAnchor Href="@("/register")" Appearance="Appearance.Hypertext">Register as a new user</FluentAnchor></div>
+        </FluentStack>
+
+        <FluentStack Orientation="Orientation.Horizontal" HorizontalAlignment="HorizontalAlignment.Right" VerticalAlignment="VerticalAlignment.Center" style="alignselfflexend;">
+            <FluentButton Loading="@loading" OnClick="@LoginAsync" Appearance="Appearance.Accent">Login</FluentButton>
+        </FluentStack>
+
+    </FluentStack>
+</FluentCard>
+
+@code
+{
+    private string? message;
+    private string? identifier;
+    private string? password;
+
+    bool loading = false;
+    bool error = false;
+
+    private async Task LoginAsync()
+    {
+        loading = true;
+
+        if (string.IsNullOrEmpty(identifier) || string.IsNullOrEmpty(password))
+        {
+            message = "Email or Password cannot be null!";
+            loading = false;
+            error = true;
+            return;
+        }
+
+        LoginRequestDto request = new LoginRequestDto()
+            {
+                Email = identifier,
+                Password = password,
+                RememberLogin = true,
+                ReturnUrl = "string"
+            };
+        LoginResponseDto result = await IdentityServiceApiClient.LoginAsync(request);
+
+        if (result.)
+        {
+            message = result.Message;
+            loading = false;
+            error = true;
+            return;
+        }
+
+        message = string.Empty;
+        loading = false;
+        error = false;
+
+        NavigationManager.NavigateTo("/main", false);
+    }
+}

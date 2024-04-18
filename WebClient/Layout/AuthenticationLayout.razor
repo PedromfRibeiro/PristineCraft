@@ -1,0 +1,25 @@
+﻿@inherits LayoutComponentBase
+@layout MainLayout
+
+
+<FluentLayout Style="background-color: var(--neutral-layer-1); color: var(--neutral-foreground-rest);">
+
+    <FluentHeader>
+        <FluentStack Orientation="Orientation.Horizontal" HorizontalAlignment="HorizontalAlignment.Left" Width="80%" Style="padding-left:12px;">
+            <FluentAnchor Href="@("/")" Appearance="Appearance.Hypertext">
+                <FluentLabel><h2>WebClient</h2></FluentLabel>
+            </FluentAnchor>
+        </FluentStack>
+    </FluentHeader>
+
+    <FluentBodyContent>
+        <FluentStack Orientation="Orientation.Vertical" VerticalAlignment="VerticalAlignment.Center"HorizontalAlignment="HorizontalAlignment.Center" Style="height:100%;">
+            @Body
+        </FluentStack>
+    </FluentBodyContent>
+
+    <FluentFooter>
+        Human Technololgy &copy; 2024
+    </FluentFooter>
+
+</FluentLayout>

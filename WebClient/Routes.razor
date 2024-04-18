@@ -1,0 +1,16 @@
+﻿@using WebClient.Presentation
+<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(DependencyInjection).Assembly" AdditionalAssemblies="new[] { typeof(WebClient._Imports).Assembly }">
+        <Found Context="routeData">
+            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+            <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+        </Found>
+        <NotFound>
+            <PageTitle>Not found</PageTitle>
+            <LayoutView Layout="@typeof(MainLayout)">
+                There is nothing in this address!
+            </LayoutView>
+        </NotFound>
+    </Router>
+</CascadingAuthenticationState>
+
