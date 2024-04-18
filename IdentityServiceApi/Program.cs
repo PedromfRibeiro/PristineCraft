@@ -13,8 +13,6 @@ using Shared.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 #region Injection Interfaces
 
 builder.Services.AddScoped<ITokenService, TokenService>();
@@ -44,19 +42,14 @@ if (app.Environment.IsDevelopment())
 	app.UseSwaggerUI();
 
 	#region Sync and seed DataBase
-
 	try
 	{
 		var context = scope.ServiceProvider.GetRequiredService<DataContext>();
 		var UserManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
 		var RoleManager = scope.ServiceProvider.GetRequiredService<RoleManager<UserRole>>();
 
-		// Se houver uma nova migra��o:
-		//		A DB � eliminada
-		//		� iniciado o processo de migra��o
-		//		E o seed da db come�a
 		var migration = context.Database.GetPendingMigrations();
-		if (true)//migration.Any())
+		if (migration.Any())
 		{
 			context.Database.EnsureDeleted();
 

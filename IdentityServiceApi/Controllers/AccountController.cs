@@ -60,7 +60,7 @@ public class AccountController(IAccountRepository _accountRepository, IMapper _m
 		}
 	}
 
-	[HttpPost, Route("Fetch")]
+	[HttpGet, Route("Fetch")]
 	public async Task<ActionResult<User>> Fetch(string email)
 	{
 		var response = await _accountRepository.Fetch(email);
@@ -75,8 +75,8 @@ public class AccountController(IAccountRepository _accountRepository, IMapper _m
 		}
 	}
 
-	[HttpPost, Route("Fetches")]
-	public async Task<ActionResult<PagedList<User>>> Fetch(FilterParams filterParams)
+	[HttpGet, Route("Fetches")]
+	public async Task<ActionResult<PagedList<User>>> Fetch([FromQuery] FilterParams filterParams)
 	{
 		var response = await _accountRepository.Fetch(filterParams);
 		if (response.IsT0)
@@ -90,7 +90,7 @@ public class AccountController(IAccountRepository _accountRepository, IMapper _m
 		}
 	}
 
-	[HttpPost, Route("Update")]
+	[HttpPut, Route("Update")]
 	public async Task<ActionResult<bool>> Update(UpdateUserRequestDto request)
 	{
 		var response = await _accountRepository.Update(request);
@@ -104,7 +104,7 @@ public class AccountController(IAccountRepository _accountRepository, IMapper _m
 		}
 	}
 
-	[HttpPost, Route("Delete")]
+	[HttpDelete, Route("Delete")]
 	public async Task<ActionResult<bool>> Delete(string email)
 	{
 		var response = await _accountRepository.Delete(email);

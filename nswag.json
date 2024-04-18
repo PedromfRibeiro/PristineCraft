@@ -1,0 +1,13 @@
+{
+  "runtime": "Net80",
+  "swagger": {
+    "document": "https://localhost:7023/swagger/v1/swagger.json"
+  },
+  "codeGenerators": {
+    "swaggerToCSharpClient": {
+      "className": "ApiClient",
+      "namespace": "YourNamespace",
+      "generateClientInterfaces": true
+    }
+  }
+}

@@ -16,15 +16,15 @@ public static class IdentityExtensions
 	public static IServiceCollection CreateIdentityServices(this IServiceCollection services, IConfiguration configuration)
 	{
 		services.AddIdentityCore<User>(opt =>
-		{
-			opt.Password.RequireNonAlphanumeric = true;
-			opt.User.RequireUniqueEmail = true;
-		})
-		.AddRoles<UserRole>()
-		.AddRoleManager<RoleManager<UserRole>>()
-		.AddRoleValidator<RoleValidator<UserRole>>()
-		.AddSignInManager<SignInManager<User>>()
-		.AddEntityFrameworkStores<DataContext>();
+			{
+				opt.Password.RequireNonAlphanumeric = true;
+				opt.User.RequireUniqueEmail = true;
+			})
+			.AddRoles<UserRole>()
+			.AddRoleManager<RoleManager<UserRole>>()
+			.AddRoleValidator<RoleValidator<UserRole>>()
+			.AddSignInManager<SignInManager<User>>()
+			.AddEntityFrameworkStores<DataContext>();
 
 		services.AddAuthentication(option =>
 		{

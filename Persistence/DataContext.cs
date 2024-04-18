@@ -1,5 +1,5 @@
 ﻿using Domain.Entities;
-
+using Domain.Entities.Event;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -51,4 +51,8 @@ public class DataContext : IdentityDbContext<User, UserRole, int, IdentityUserCl
 	public DbSet<Payee> DbPayee { get; set; }
 	public DbSet<PayeeCategory> DbPayeeCategory { get; set; }
 	public DbSet<BankAccount> DbBankAccount { get; set; }
+	public DbSet<Event> DbEvent { get; set; }
+	public DbSet<EventCategory> DbEventCategory { get; set; }
+	public DbSet<EventSubCategory> DbEventSubCategory { get; set; }
+	public DbSet<Group> DbGroup { get; set; }
 }

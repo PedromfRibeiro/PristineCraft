@@ -33,6 +33,8 @@ public static class ExceptionStrings
 
 	public static readonly string Server_Failed = "Erro do Servidor interno";
 
+	public static readonly string Server_Create_Failed = "Error ao criar entidade";
+
 	public static readonly string Server_Update_Failed = "Error ao atualizar entidade";
 
 	public static readonly string Server_Delete_Failed = "Error ao eliminar entidade";
@@ -46,4 +48,9 @@ public static class ExceptionStrings
 	public static readonly string Messenger_Error = "Error ao enviar messagem";
 
 	#endregion Message
+
+	#region Generic
+
+	public static readonly string Record_NotFound = "Registo não encontrado";
+	#endregion Generic
 }
