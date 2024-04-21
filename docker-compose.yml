@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  identityserviceapi:
+    container_name: identityservice-api
+    image: ${DOCKER_REGISTRY-}identityserviceapi
+    # networks:
+        
+    build:
+      context: .
+      dockerfile: IdentityServiceApi/Dockerfile
+
+  apigateway:
+    image: ${DOCKER_REGISTRY-}apigateway
+    build:
+      context: .
+      dockerfile: ApiGateway/Dockerfile
+

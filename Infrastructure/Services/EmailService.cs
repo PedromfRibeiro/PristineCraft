@@ -1,4 +1,4 @@
-﻿using Domain.Entities.Services;
+﻿using PristineCraft.Domain.Entities.Services;
 using FluentEmail.Core;
 using Infrastructure.Interfaces;
 using Microsoft.Extensions.Logging;

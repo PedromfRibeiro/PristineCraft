@@ -1,31 +1,41 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Application.DTO.User;
+namespace PristineCraft.Application.DTO.User;
 
 public class RegisterRequestDto
 {
-	[Required]
-	public string Name { get; set; }
-	public string Contact { get; set; }
-	public string PhoneNumber { get; set; }
-	public string Observations { get; set; }
+    [Required]
+    public required string Name { get; set; }
+    public required string Contact { get; set; }
+    public required string PhoneNumber { get; set; }
+    public required string Observations { get; set; }
 
-	//IdentityUser Fields
-	[Required]
-	public string UserName { get; set; }
+    //IdentityUser Fields
+    [Required]
+    public required string UserName { get; set; }
 
-	[Required]
-	public string Email { get; set; }
+    [Required]
+    public required string Email { get; set; }
 
-	[Required]
-	[StringLength(20, MinimumLength = 4)]
-	public string Password { get; set; }
+    [Required]
+    [StringLength(20, MinimumLength = 4)]
+    public required string Password { get; set; }
+
+    private class Mapping : Profile
+    {
+        public Mapping() => CreateMap<Domain.Entities.User.AppUser, RegisterRequestDto>().ReverseMap();
+    }
 }
 
 public class RegisterResponseDTO
 {
-	public string UserName { get; set; }
-	public string Email { get; set; }
-	public bool RoleCreationSuccess { get; set; }
-	public string? RoleCreationError { get; set; }
+    public required string UserName { get; set; }
+    public required string Email { get; set; }
+    public bool RoleCreationSuccess { get; set; }
+    public string? RoleCreationError { get; set; }
+
+    private class Mapping : Profile
+    {
+        public Mapping() => CreateMap<Domain.Entities.User.AppUser, RegisterResponseDTO>().ReverseMap();
+    }
 }

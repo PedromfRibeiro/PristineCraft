@@ -1,4 +1,4 @@
-﻿namespace Domain.Entities;
+﻿namespace PristineCraft.Domain.Entities;
 
 public enum EnumGender
 

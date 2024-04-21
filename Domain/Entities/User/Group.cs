@@ -1,16 +1,16 @@
-﻿namespace Domain.Entities;
+﻿namespace PristineCraft.Domain.Entities.User;
 
 public class Group
 {
-	public int Id { get; set; }
-	public required string Name { get; set; }
-	public ICollection<User>? Relatives { get; set; } = new List<User>();
-	public required User Owner { get; set; }
+    public int Id { get; set; }
+    public required string Name { get; set; }
+    public ICollection<AppUser>? Relatives { get; set; } = new List<AppUser>();
+    public required AppUser Owner { get; set; }
 
-	public Group(User owner, string name)
-	{
-		Owner = owner;
-		Name = name;
-		Relatives.Add(owner); // Include owner as the first member of the group
-	}
+    public Group(AppUser owner, string name)
+    {
+        Owner = owner;
+        Name = name;
+        Relatives.Add(owner); // Include owner as the first member of the group
+    }
 }
