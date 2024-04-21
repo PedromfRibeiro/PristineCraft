@@ -6,9 +6,12 @@ namespace Infrastructure;
 
 public class ChatHub : Hub
 {
-	public async Task<string> SendMessage(string userNameFrom, string userNameTo, string messageContent)
-	{
-		var chatService = Context.GetHttpContext().RequestServices.GetService<ChatService>();
-		return await chatService.SendMessage(userNameFrom, userNameTo, messageContent);
-	}
+    public async Task<string> SendMessage(string userNameFrom, string userNameTo, string messageContent)
+    {
+        //TODO: Null Check
+        var chatService = Context?.GetHttpContext()?.RequestServices.GetService<ChatService>();
+        if (chatService == null)
+            return "Messenger_Error";
+        return await chatService.SendMessage(userNameFrom, userNameTo, messageContent);
+    }
 }

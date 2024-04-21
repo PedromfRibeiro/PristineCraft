@@ -1,4 +1,4 @@
-﻿using Domain.Entities.Services;
+﻿using PristineCraft.Domain.Entities.Services;
 
 namespace Infrastructure.Interfaces;
 
