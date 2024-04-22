@@ -8,9 +8,9 @@ public class AppUser : IdentityUser<int>
     public byte[]? ImageSmall { get; set; }
     public string? Observations { get; set; }
     public EnumGender Gender { get; set; }
-    public ICollection<UserMetaData> UserMetaData { get; set; } = [];
+    public ICollection<UserMetaData>? UserMetaData { get; set; }
     public ICollection<Message> Messages { get; set; } = [];
-    public required ICollection<AppRole> UserRole { get; set; }
+    public ICollection<AppRole>? UserRole { get; set; }
     public ICollection<BankAccount>? BankAccounts { get; set; }
 
     // Navigation property for messages sent by this user

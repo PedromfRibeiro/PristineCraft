@@ -2,6 +2,6 @@
 
 public class AppRole : IdentityUserRole<int>
 {
-    public required AppUser User { get; set; }
-    public required UserRole UserRole { get; set; }
+    public AppUser? User { get; set; }
+    public UserRole? UserRole { get; set; }
 }

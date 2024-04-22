@@ -1,4 +1,6 @@
-﻿namespace PristineCraft.Domain.Entities.User;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace PristineCraft.Domain.Entities.User;
 
 public class Group
 {

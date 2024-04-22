@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using System.ComponentModel.DataAnnotations;
 
 namespace PristineCraft.Domain.Entities;
 
@@ -12,6 +13,7 @@ public class LogEntry
         Details = details;
     }
 
+    [Key]
     public int Id { get; set; }
     public string? Message { get; set; }
     public int StatusCode { get; set; }
