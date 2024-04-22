@@ -4,6 +4,7 @@ using PristineCraft.Domain.Entities.User;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Infrastructure;
 
@@ -16,7 +17,7 @@ public class DataContext : IdentityDbContext<AppUser, UserRole, int, IdentityUse
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
-
+        
         builder.Entity<AppUser>()
                  .HasMany(ur => ur.UserRole)
                  .WithOne(u => u.User)

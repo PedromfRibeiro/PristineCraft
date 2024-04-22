@@ -2,6 +2,8 @@
 using Infrastructure.Seed;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace Infrastructure.Helper;
 
@@ -9,12 +11,22 @@ public static class Seeds
 {
     public static async Task SeederStartUpVerification(UserManager<AppUser> userManager, DataContext _context, RoleManager<UserRole> roleManager)
     {
-        var checkDatabaseContent = await _context.DbUser.CountAsync();
-        if (checkDatabaseContent == 0)
+        _context.Database.EnsureDeleted();
+        _context.Database.EnsureCreated();
+        if (_context.Database.GetPendingMigrations().Any())
         {
-            await UserSeedAsync(userManager, _context, roleManager);
-            await Seeder.CreateCategories(_context);
-            await Seeder.CreateBankAccount(_context);
+            try
+            {
+                _context.Database.EnsureDeleted();
+                _context.Database.Migrate();
+                await UserSeedAsync(userManager, _context, roleManager);
+                Seeder.CreateCategories(_context);
+                Seeder.CreateBankAccount(_context);
+            }
+            catch
+            {
+                throw new Exception("An error occurred durring migration");
+            }
         }
     }
 
@@ -26,11 +38,11 @@ public static class Seeds
             await _context.SaveChangesAsync();
             List<AppUser> listUser = await SeedUser.Seeder(userManager);
             await _context.DbUser.AddRangeAsync(listUser);
+            await _context.SaveChangesAsync();
         }
         catch (Exception ex)
         {
-            Console.Write(ex.ToString());
+            throw new Exception(ex.ToString());
         }
-        await _context.SaveChangesAsync();
     }
 }

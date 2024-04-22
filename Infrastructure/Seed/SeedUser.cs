@@ -2,6 +2,7 @@
 using PristineCraft.Domain.Entities;
 using PristineCraft.Domain.Entities.User;
 using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace Infrastructure.Seed;
 
@@ -17,8 +18,8 @@ internal class SeedUser
                 .RuleFor(o => o.Id, f => 0)
                 .RuleFor(o => o.Name, f => f.Person.FullName)
                 .RuleFor(o => o.Contact, f => f.Person.Phone)
-                .RuleFor(o => o.Image, f => Utils.DownloadImageFromUrl(f.Person.Avatar))
-                .RuleFor(o => o.ImageSmall, f => Utils.DownloadImageFromUrl(f.Person.Avatar))
+                .RuleFor(o => o.Image, f => DownloadImageFromUrl(f.Person.Avatar))
+                .RuleFor(o => o.ImageSmall, f => DownloadImageFromUrl(f.Person.Avatar))
                 .RuleFor(o => o.Observations, f => f.Random.Word())
                 .RuleFor(o => o.Gender, f => f.PickRandom<EnumGender>())
                 .RuleFor(o => o.Email, f => f.Person.Email)
@@ -42,16 +43,41 @@ internal class SeedUser
     {
         List<UserRole> roles =
             [
-                new UserRole { Name = "Admin" },
-                new UserRole { Name = "Moderator" },
-                new UserRole { Name = "CompanyOwner" },
-                new UserRole { Name = "CompanyMember" },
-                new UserRole { Name = "MemberPremium" },
-                new UserRole { Name = "MemberBasic" },
+                new UserRole { Id=0, Name = "Admin" },
+                new UserRole { Id=0, Name = "Moderator" },
+                new UserRole { Id=0, Name = "CompanyOwner" },
+                new UserRole { Id=0, Name = "CompanyMember" },
+                new UserRole { Id=0, Name = "MemberPremium" },
+                new UserRole { Id=0, Name = "MemberBasic" },
             ];
         foreach (var role in roles)
         {
             await roleManager.CreateAsync(role);
+        }
+    }
+
+    private static byte[] DownloadImageFromUrl(string url)
+    {
+        using (HttpClient client = new HttpClient())
+        {
+            try
+            {
+                HttpResponseMessage response = client.GetAsync(url).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    byte[] imageBytes = response.Content.ReadAsByteArrayAsync().Result;
+                    return imageBytes;
+                }
+                else
+                {
+                    Console.WriteLine($"Failed to download image. Status code: {response.StatusCode}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+            return new byte[0];
         }
     }
 }

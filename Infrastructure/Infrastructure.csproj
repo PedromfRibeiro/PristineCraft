@@ -6,6 +6,8 @@
 <ItemGroup>
     <PackageReference Include="AutoMapper" />
     <PackageReference Include="Bogus" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" />
+	<PackageReference Include="Microsoft.EntityFrameworkCore.Design" />
     <PackageReference Include="FluentEmail.Smtp" />
     <PackageReference Include="FluentEmail.Core" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
@@ -24,5 +26,6 @@
 
   <ItemGroup>
     <Folder Include="Controller\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 </Project>

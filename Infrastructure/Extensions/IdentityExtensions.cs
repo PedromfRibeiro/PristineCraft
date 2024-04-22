@@ -57,7 +57,7 @@ public static class IdentityExtensions
         services.AddDbContext<DataContext>(
             opt => opt.UseSqlServer(
                 configuration.GetConnectionString("SQLServerCon"),
-                x => x.MigrationsAssembly("Persistence")
+                x => x.MigrationsAssembly("PristineCraft.Infrastructure")
             ));
         services.AddSignalR();
         return services;
