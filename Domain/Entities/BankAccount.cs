@@ -1,10 +1,11 @@
 ﻿using PristineCraft.Domain.Entities.User;
+using System.ComponentModel.DataAnnotations;
 
 namespace PristineCraft.Domain.Entities;
 
 public class BankAccount
 {
-    [System.ComponentModel.DataAnnotations.Key]
+    [Key]
     public int Id { get; set; }
 
     public required string Name { get; set; }
