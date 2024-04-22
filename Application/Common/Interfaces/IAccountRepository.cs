@@ -3,8 +3,6 @@ using PristineCraft.Application.Common.Models;
 using PristineCraft.Application.DTO.User;
 using PristineCraft.Application.Services;
 using PristineCraft.Domain.Entities.User;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-using System.Threading.Channels;
 
 namespace PristineCraft.Application.Common.Interfaces;
 
