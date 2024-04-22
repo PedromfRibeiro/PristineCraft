@@ -13,7 +13,6 @@ COPY ["IdentityServiceApi/IdentityServiceApi.csproj", "IdentityServiceApi/"]
 COPY ["Application/Application.csproj", "Application/"]
 COPY ["Domain/Domain.csproj", "Domain/"]
 COPY ["Infrastructure/Infrastructure.csproj", "Infrastructure/"]
-COPY ["Persistence/Persistence.csproj", "Persistence/"]
 RUN dotnet restore "./IdentityServiceApi/IdentityServiceApi.csproj"
 COPY . .
 WORKDIR "/src/IdentityServiceApi"
